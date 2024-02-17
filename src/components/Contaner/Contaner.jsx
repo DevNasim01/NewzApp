@@ -55,7 +55,7 @@ const Container = ({ inputValue, setInputValue }) => {
 
   if (loading) {
     return (
-      <div style={{ height: `calc(100vh - ${navbarHeight}px)` }}>
+      <div style={{ height: `calc(100dvh - ${navbarHeight}px)` }}>
         <div className='error'><h2>Loading...</h2></div>
       </div>
     );
@@ -63,7 +63,7 @@ const Container = ({ inputValue, setInputValue }) => {
 
   if (error) {
     return (
-      <div style={{ height: `calc(100vh - ${navbarHeight}px)` }}>
+      <div style={{ height: `calc(100dvh - ${navbarHeight}px)` }}>
         <ErrorMsg error={error} />
       </div>
     );
@@ -71,14 +71,14 @@ const Container = ({ inputValue, setInputValue }) => {
 
   if (articles.length === 0) {
     return (
-      <div style={{ height: `calc(100vh - ${navbarHeight}px)` }}>
+      <div style={{ height: `calc(100dvh - ${navbarHeight}px)` }}>
         <div className='error'><h2>404: PAGE NOT FOUND</h2></div>
       </div>
     );
   }
 
   return (
-    <div style={{ height: `calc(100vh - ${navbarHeight}px)` }}>
+    <div style={{ height: `calc(100dvh - ${navbarHeight}px)` }}>
       <div className={styles.container}>
         <h1>Newz Feed</h1>
         {articles
