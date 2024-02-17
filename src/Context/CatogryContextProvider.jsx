@@ -3,7 +3,7 @@ import { useState } from "react";
 import CatogryContext from "./CatogryContext";
 
 const CatogryContextProvider = ({children}) => {
-    const [catagory, setCatagory] = useState('general')
+    const [catagory, setCatagory] = useState('')
 
     return (
         <CatogryContext.Provider value={{catagory, setCatagory}}>

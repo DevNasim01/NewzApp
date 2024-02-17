@@ -12,16 +12,20 @@ const Container = ({ inputValue, setInputValue }) => {
   const { catagory } = useContext(CatogryContext);
 
   useEffect(() => {
-    setLoading(true);
-    const trimmedInputValue = inputValue ? encodeURIComponent(inputValue.trim()) : '';
-    let url = '';
+    
+    if (inputValue !== null && inputValue !== undefined) {
+      setLoading(true);
+      const trimmedInputValue = inputValue ? encodeURIComponent(inputValue.trim()) : '';
+      let url = '';
 
-    if (trimmedInputValue) {
-      url = `https://newsapi.org/v2/everything?q=${trimmedInputValue}&apiKey=${import.meta.env.VITE_API_KEY}`;
-    } else {
-      url = `https://newsapi.org/v2/top-headlines?country=us&category=${catagory}&apiKey=${import.meta.env.VITE_API_KEY}`
-    }
-
+      if (trimmedInputValue) {
+        url = `https://newsapi.org/v2/everything?q=${trimmedInputValue}&apiKey=${import.meta.env.VITE_API_KEY}`;
+      } else if (catagory){
+        url = `https://newsapi.org/v2/top-headlines?country=us&category=${catagory}&apiKey=${import.meta.env.VITE_API_KEY}`
+      } else {
+        url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_API_KEY}`
+      }
+    
     fetch(url)
       .then(response => {
         if (!response.ok) {
@@ -42,6 +46,7 @@ const Container = ({ inputValue, setInputValue }) => {
     if (navbarElement) {
       const height = navbarElement.offsetHeight;
       setNavbarHeight(height);
+     }
     }
   }, [inputValue, catagory]);
 
