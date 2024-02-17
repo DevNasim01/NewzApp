@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 10%;
+    gap: 1.5rem;
+    /* background-color: #f68add; */
+
+    h1{
+        padding: 2rem 0rem;
+        width: 100%;
+        text-align: center;
+    }
+
+  }

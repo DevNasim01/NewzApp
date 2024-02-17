@@ -1,0 +1,19 @@
+.error{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+
+    h1{
+        text-align: center;
+    }
+
+    span{
+        font-size:large;
+    }
+
+    p{
+        font-size: large;
+        margin-top: 3rem;
+    }
+}
