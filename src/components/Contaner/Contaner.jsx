@@ -9,12 +9,12 @@ const Container = ({ inputValue, setInputValue }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [navbarHeight, setNavbarHeight] = useState(0);
-  const { catagory } = useContext(CatogryContext);
+  const { catagory, setCatagory } = useContext(CatogryContext);
 
   useEffect(() => {
     
-    if (inputValue !== null && inputValue !== undefined) {
-      setLoading(true);
+    if ( inputValue !== undefined) {
+      
       const trimmedInputValue = inputValue ? encodeURIComponent(inputValue.trim()) : '';
       let url = '';
 
@@ -25,7 +25,7 @@ const Container = ({ inputValue, setInputValue }) => {
       } else {
         url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_API_KEY}`
       }
-    
+      setLoading(true);
     fetch(url)
       .then(response => {
         if (!response.ok) {
@@ -55,6 +55,8 @@ const Container = ({ inputValue, setInputValue }) => {
       if (inputValue) {
         setInputValue(null);
       }
+    } else {
+      setArticles([])
     }
   }, [loading, inputValue, setInputValue]);
 
